@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be to Create - Doteo Hub</title>
+    <style>
+        /* Fondo espacial Cyberpunk con tus colores vibrantes */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #1a0b2e 0%, #05010d 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: #ffaa00; /* Naranja enérgico */
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px rgba(255, 170, 0, 0.6);
+            margin-bottom: 5px;
+        }
+
+        p.mission {
+            color: #ff5500; /* Cálido divertido */
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        /* Contenedor del Asistente Mochi */
+        .mochi-container {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* EL EFECTO SQUISHY REBOTANTE (Mecánica de animación) */
+        .mochi-avatar {
+            width: 130px;
+            height: 110px;
+            background-color: #00ddff; /* Tu Mochi Azul de la sección cognitiva */
+            border-radius: 50% 50% 45% 45%;
+            box-shadow: 0 0 25px rgba(0, 221, 255, 0.5);
+            transition: transform 0.2s ease-out;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Al pasar el mouse o tocarlo, se hace Squishy (se aplasta y se expande) */
+        .mochi-avatar:hover {
+            transform: scaleX(1.25) scaleY(0.8);
+        }
+
+        /* Ojos tiernos de Doteo */
+        .eyes {
+            display: flex;
+            gap: 35px;
+        }
+
+        .eye {
+            width: 14px;
+            height: 14px;
+            background-color: #05010d;
+            border-radius: 50%;
+        }
+
+        /* El Menú de Modos del Cognitive Hub */
+        .hub-menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            width: 90%;
+            margin-bottom: 40px;
+        }
+
+        .hub-button {
+            background: linear-gradient(135deg, #ffaa00, #ff5500);
+            border: none;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 85, 0, 0.3);
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .hub-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 170, 0, 0.5);
+        }
+
+        /* Cuadro de diálogo interactivo */
+        .dialogue-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #ff5500;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 85, 0, 0.1);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Be to Create</h1>
+        <p class="mission">"Every great mission begins with a logbook"</p>
+    </header>
+
+    <div class="mochi-container">
+        <!-- Pasa el puntero por encima de este bloque para ver el efecto squishy -->
+        <div class="mochi-avatar" id="mochi">
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Los 3 botones del Doteo Cognitive Hub que dibujaste -->
+    <div class="hub-menu">
+        <button class="hub-button" onclick="cambiarModo('System Mode')">System Mode</button>
+        <button class="hub-button" onclick="cambiarModo('Teacher AI')">Teacher AI</button>
+        <button class="hub-button" onclick="cambiarModo('Best Friend')">Best Friend</button>
+    </div>
+
+    <!-- Cuadro de texto interactivo de Doteo -->
+    <div class="dialogue-box" id="output">
+        ¡Hola, Andy_PerronDev! Soy Doteo. Tócame para sentir mi textura elástica o presiona un modo en el Hub para cambiar mi personalidad.
+    </div>
+
+    <script>
+        // Lógica en JavaScript para cambiar la personalidad y respuestas de Doteo
+        function cambiarModo(modo) {
+            const outputBox = document.getElementById('output');
+            const mochiColor = document.getElementById('mochi');
+            
+            if (modo === 'System Mode') {
+                mochiColor.style.backgroundColor = '#00ddff';
+                outputBox.innerHTML = "<b>[Doteo - System Mode]:</b> Sistemas en línea. Listo para ejecutar comandos y organizar tus herramientas de estudio.";
+            } else if (modo === 'Teacher AI') {
+                mochiColor.style.backgroundColor = '#ffcc00';
+                outputBox.innerHTML = "<b>[Doteo - Teacher AI]:</b> No te preocupes por los errores, Andy. Vamos a resolver tus dudas de física y matemáticas paso a paso.";
+            } else if (modo === 'Best Friend') {
+                mochiColor.style.backgroundColor = '#ff55aa';
+                outputBox.innerHTML = "<b>[Doteo - Best Friend]:</b> ¡Qué onda! Olvídate del estrés un rato. ¿Qué invento loco se nos va a ocurrir hoy en la libreta?";
+            }
+        }
+    </script>
+</body>
+</html>
